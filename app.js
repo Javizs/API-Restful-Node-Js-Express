@@ -1,11 +1,13 @@
 var express = require('express');
 var mysql = require('mysql');
-
+var cors = require('cors');
 
 var app = express();
 
 //Especifiacion de que usamos JSON
 app.use(express.json());
+//Especificacion de uso de CORS
+app.use(cors());
 
 // Configuración de la conexión a la base de datos MySQL
 var connection = mysql.createConnection({
