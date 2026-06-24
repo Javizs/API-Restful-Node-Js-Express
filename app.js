@@ -19,6 +19,27 @@ connection.connect(function (error) {
     }
 });
 
+//METODO GET (MOSTRAR ARTICULOS)
+ app.get('/api/articulos', (req, res) => {
+    connection.query('SELECT * FROM articulos', (error, filas) => {
+        if (error) {
+            throw error; 
+        }else{
+            res.send(filas);
+        }
+    });
+});
+//METODO GET (MOSTRAR un ARTICULO)
+ app.get('/api/articulos/:id', (req, res) => {
+    connection.query('SELECT * FROM articulos WHERE id=?',[req.params.id], (error, fila) => {
+        if (error) {
+            throw error; 
+        }else{
+            //res.send(fila[0]);
+            res.send(fila[0].descripcion);
+        }
+    });
+});
 app.get('/', function (req, res) {
     res.send('Ruta de inicio del servidor');
 });
