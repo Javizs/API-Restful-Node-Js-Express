@@ -72,7 +72,7 @@ app.put('/api/articulos/:id', (req, res) => {
     let descripcion = req.body.descripcion;
     let precio = req.body.precio;
     let stock = req.body.stock;
-    let sql = "UPDATE articulos set descrpcion =  ?, precio = ?, stock = ? WHERE id = ?";
+    let sql = "UPDATE articulos set descripcion =  ?, precio = ?, stock = ? WHERE id = ?";
     connection.query(sql, [descripcion, precio, stock, id], function (error, results) {
         if (error) {
             throw error; 
